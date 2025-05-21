@@ -114,16 +114,10 @@ public class PaymentServiceImpl implements PaymentService {
             throw new BadRequestException("Card ID is required for card payments");
         }
         
-        // Kiểm tra xem thẻ có tồn tại không - tạm thời comment để test
-        /*
+        // Kiểm tra xem thẻ có tồn tại không
         if (request.getCardId() != null) {
             paymentCardRepository.findById(request.getCardId())
                 .orElseThrow(() -> new ResourceNotFoundException("Card not found with id: " + request.getCardId()));
-        }
-        */
-        // Chỉ log thông tin thẻ để debug
-        if (request.getCardId() != null) {
-            System.out.println("Using card ID: " + request.getCardId() + " (validation bypassed for testing)");
         }
     }
     
